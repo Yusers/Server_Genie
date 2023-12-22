@@ -12,4 +12,7 @@ public interface IProductService {
     ProductDTO findById(long id);
 
     ProductDTO saveProduct(ProductDTO productDTO);
+
+    String deleteProduct(long id);
+
 }

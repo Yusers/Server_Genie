@@ -28,4 +28,15 @@ public class ProductAPI {
     public ProductDTO createProduct(@RequestBody ProductDTO productDTO) {
         return productService.saveProduct(productDTO);
     }
+
+    @PutMapping("/product/{id}")
+    public ProductDTO updateProduct(@RequestBody ProductDTO productDTO, @PathVariable("id") long id) {
+        productDTO.setId(id);
+        return productService.saveProduct(productDTO);
+    }
+
+    @DeleteMapping("/product/{id}")
+    public String deleteProduct(@PathVariable("id") long id) {
+        return productService.deleteProduct(id);
+    }
 }

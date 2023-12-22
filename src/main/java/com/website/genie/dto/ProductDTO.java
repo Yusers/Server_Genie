@@ -69,7 +69,7 @@ public class ProductDTO extends BaseDTO {
         return price;
     }
 
-    public void setPrice(long price) {
+    public void setPrice(double price) {
         this.price = price;
     }
 
