@@ -10,6 +10,9 @@ public class ProductEntity extends BaseEntity {
     @Column
     private String title;
 
+    @Column
+    private String size;
+
     @ManyToOne
     @JoinColumn(name = "category_id")
     private CategoryEntity category;
@@ -35,6 +38,30 @@ public class ProductEntity extends BaseEntity {
 
     @OneToMany(mappedBy = "product")
     private List<OrderItemsEntity> order;
+
+    public String getSize() {
+        return size;
+    }
+
+    public void setSize(String size) {
+        this.size = size;
+    }
+
+    public CartEntity getCart() {
+        return cart;
+    }
+
+    public void setCart(CartEntity cart) {
+        this.cart = cart;
+    }
+
+    public List<OrderItemsEntity> getOrder() {
+        return order;
+    }
+
+    public void setOrder(List<OrderItemsEntity> order) {
+        this.order = order;
+    }
 
     public String getTitle() {
         return title;
