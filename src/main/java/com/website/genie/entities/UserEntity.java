@@ -14,6 +14,9 @@ public class UserEntity extends BaseEntity {
     private String password;
     @Column(name = "fullname")
     private String fullname;
+
+    @Column(name = "email")
+    private String email;
     @Column
     private Integer status;
 
@@ -29,6 +32,38 @@ public class UserEntity extends BaseEntity {
 
     @OneToMany(mappedBy = "user")
     private List<ShipmentEntity> shipments;
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public List<RoleEntity> getRoles() {
+        return roles;
+    }
+
+    public void setRoles(List<RoleEntity> roles) {
+        this.roles = roles;
+    }
+
+    public List<PaymentEntity> getPayments() {
+        return payments;
+    }
+
+    public void setPayments(List<PaymentEntity> payments) {
+        this.payments = payments;
+    }
+
+    public List<ShipmentEntity> getShipments() {
+        return shipments;
+    }
+
+    public void setShipments(List<ShipmentEntity> shipments) {
+        this.shipments = shipments;
+    }
 
     public String getUsername() {
         return username;
@@ -60,5 +95,19 @@ public class UserEntity extends BaseEntity {
 
     public void setStatus(Integer status) {
         this.status = status;
+    }
+
+    @Override
+    public String toString() {
+        return "UserEntity{" +
+                "username='" + username + '\'' +
+                ", password='" + password + '\'' +
+                ", fullname='" + fullname + '\'' +
+                ", email='" + email + '\'' +
+                ", status=" + status +
+                ", roles=" + roles +
+                ", payments=" + payments +
+                ", shipments=" + shipments +
+                '}';
     }
 }

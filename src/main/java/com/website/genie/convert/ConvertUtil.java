@@ -1,8 +1,11 @@
 package com.website.genie.convert;
 
 import com.website.genie.dto.ProductDTO;
+import com.website.genie.dto.UserDTO;
 import com.website.genie.entities.CategoryEntity;
 import com.website.genie.entities.ProductEntity;
+import com.website.genie.entities.UserEntity;
+import org.apache.catalina.User;
 import org.springframework.stereotype.Component;
 
 @Component
@@ -22,4 +25,14 @@ public class ConvertUtil {
         product.setDescription(p.getDescription());
         return product;
     }
+
+    public UserDTO toDTO(UserEntity u) {
+        UserDTO user = new UserDTO(u.getFullname(), u.getUsername(), u.getEmail());
+        user.setId(u.getId());
+        user.setCreateDate(u.getCreateDate());
+        user.setModifiedBy(u.getModifiedBy());
+        user.setModifiedDate(u.getModifiedDate());
+        return user;
+    }
+
 }
